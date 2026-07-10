@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prospere — Design a life you don't need a vacation from</title>
+<link rel="icon" href="./images/icon.png" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: linear-gradient(180deg, #FFF8EF 0%, #FDF1E2 40%, #FCEBD8 100%);
+    color: #2B2118;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+  a { color: #C9622A; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* Decorative warm blobs */
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.35;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Header */
+  header.site {
+    position: relative;
+    z-index: 2;
+    padding: 22px 0;
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: #2B2118;
+    text-decoration: none;
+  }
+  .brand img { width: 34px; height: 34px; border-radius: 9px; }
+  .nav-links { display: flex; gap: 22px; font-size: 0.9rem; font-weight: 600; }
+  .nav-links a { color: #5C4B3A; text-decoration: none; }
+  .nav-links a:hover { color: #C9622A; }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    padding: 64px 0 40px;
+    text-align: center;
+    z-index: 1;
+  }
+  .hero-icon {
+    width: 88px; height: 88px; border-radius: 22px;
+    box-shadow: 0 12px 32px rgba(232, 131, 75, 0.35);
+    margin-bottom: 28px;
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #B15A2B;
+    background: rgba(232, 131, 75, 0.12);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  h1.headline {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    max-width: 780px;
+    margin: 0 auto 20px;
+    background: linear-gradient(100deg, #2B2118 30%, #B15A2B 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .subhead {
+    font-size: 1.15rem;
+    color: #5C4B3A;
+    max-width: 600px;
+    margin: 0 auto 36px;
+  }
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: linear-gradient(100deg, #F0954F, #D9622C);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 28px rgba(217, 98, 44, 0.35);
+  }
+  .btn-primary:hover { filter: brightness(1.05); }
+  .coming-soon {
+    font-size: 0.85rem;
+    color: #8A7863;
+    font-weight: 600;
+  }
+
+  /* Philosophy band */
+  .philosophy {
+    position: relative;
+    z-index: 1;
+    background: #2B2118;
+    color: #F3E8DA;
+    padding: 56px 0;
+    margin-top: 40px;
+  }
+  .philosophy .wrap { text-align: center; max-width: 720px; }
+  .philosophy p.lead {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+  .philosophy .accent { color: #F0954F; }
+  .philosophy p.sub {
+    margin-top: 16px;
+    color: #C9BBA9;
+    font-size: 1rem;
+  }
+
+  /* Features */
+  .features { padding: 80px 0; position: relative; z-index: 1; }
+  .feature-row {
+    display: flex;
+    align-items: center;
+    gap: 56px;
+    margin-bottom: 96px;
+  }
+  .feature-row:last-child { margin-bottom: 0; }
+  .feature-row.reverse { flex-direction: row-reverse; }
+  .feature-text { flex: 1; min-width: 260px; }
+  .feature-image { flex: 0 0 auto; width: 300px; display: flex; justify-content: center; }
+  .feature-image img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 26px;
+    box-shadow: 0 24px 60px rgba(43, 33, 24, 0.25);
+    display: block;
+  }
+  .feature-icon {
+    width: 46px; height: 46px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 18px;
+  }
+  .feature-text h3 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: #2B2118;
+  }
+  .feature-text p {
+    color: #5C4B3A;
+    font-size: 1.02rem;
+    max-width: 440px;
+  }
+
+  /* Closing CTA */
+  .closing {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 70px 0 90px;
+  }
+  .closing h2 {
+    font-size: clamp(1.7rem, 4vw, 2.4rem);
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: #2B2118;
+  }
+  .closing p {
+    color: #5C4B3A;
+    max-width: 520px;
+    margin: 0 auto 32px;
+    font-size: 1.05rem;
+  }
+
+  /* Footer */
+  footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid rgba(43, 33, 24, 0.1);
+    padding: 28px 0;
+  }
+  footer .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #8A7863;
+  }
+  footer a { color: #8A7863; text-decoration: none; font-weight: 600; }
+  footer a:hover { color: #C9622A; }
+  footer .footer-links { display: flex; gap: 18px; }
+
+  @media (max-width: 720px) {
+    .feature-row, .feature-row.reverse { flex-direction: column; }
+    .feature-image { width: 240px; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="blob" style="top:-80px; left:-100px; width:380px; height:380px; background:#F0954F;"></div>
+  <div class="blob" style="top:420px; right:-140px; width:420px; height:420px; background:#00C896;"></div>
+  <div class="blob" style="top:1200px; left:-160px; width:420px; height:420px; background:#F5C16C;"></div>
+
+  <header class="site">
+    <div class="wrap nav">
+      <a class="brand" href="#top">
+        <img src="./images/icon.png" alt="Prospere logo" />
+        Prospere
+      </a>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="./index.html">Support</a>
+        <a href="./privacy-policy.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="wrap">
+      <img class="hero-icon" src="./images/icon.png" alt="Prospere" />
+      <div class="eyebrow">Guided self-discovery &amp; goal-setting</div>
+      <h1 class="headline">Design a life you don't need a vacation from.</h1>
+      <p class="subhead">Prospere walks you from "I know something needs to change" to a life that actually reflects your values — one guided exercise, one honest goal, one small daily action at a time.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="mailto:joeldubey@gmail.com?subject=Prospere%20Early%20Access">Get Early Access</a>
+      </div>
+      <div class="coming-soon">Coming soon to iOS &amp; Android &middot; or email <a href="mailto:joeldubey@gmail.com">joeldubey@gmail.com</a> directly</div>
+    </div>
+  </section>
+
+  <section class="philosophy">
+    <div class="wrap">
+      <p class="lead">Most people don't need <span class="accent">more willpower</span>. They need to see clearly what already charges them up — and what's quietly draining them.</p>
+      <p class="sub">Prospere is built on that idea: clarity first, then goals, then daily action that actually sticks.</p>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="wrap">
+
+      <div class="feature-row">
+        <div class="feature-text">
+          <div class="feature-icon" style="background:rgba(0,200,150,0.12); color:#00A87C;">🧭</div>
+          <h3>Get to know yourself again</h3>
+          <p>Twenty guided exercises with Coach Celia walk you through gratitude, your core values, and what genuinely drives you. It's the foundation everything else in Prospere is built on — take your time, it's worth it.</p>
+        </div>
+        <div class="feature-image">
+          <img src="./images/feature-inner-work.jpg" alt="Inner Work modules guided by Coach Celia" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="feature-row reverse">
+        <div class="feature-text">
+          <div class="feature-icon" style="background:rgba(240,149,79,0.15); color:#D9622C;">🥧</div>
+          <h3>See your whole life at a glance</h3>
+          <p>Your Life Pie shows how fulfilled you feel across family, health, career, relationships, and more — a single honest snapshot of where you're thriving and where you're quietly neglecting yourself.</p>
+        </div>
+        <div class="feature-image">
+          <img src="./images/feature-life-pie.jpg" alt="Life Pie balance wheel" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-text">
+          <div class="feature-icon" style="background:rgba(0,200,150,0.12); color:#00A87C;">⚡</div>
+          <h3>Know what fuels you — and what drains you</h3>
+          <p>Log the people and activities that charge your energy versus the ones that drain it, and watch your net balance shift as you start choosing on purpose instead of by default.</p>
+        </div>
+        <div class="feature-image">
+          <img src="./images/feature-charge-meter.jpg" alt="Charge Meter showing drains and charges" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="feature-row reverse">
+        <div class="feature-text">
+          <div class="feature-icon" style="background:rgba(240,149,79,0.15); color:#D9622C;">🎯</div>
+          <h3>Goals that actually stick</h3>
+          <p>Set goals across every time horizon — from today to ten years out — every one of them tied back to the values and vision you uncovered in Inner Work. No more goals that don't feel like yours.</p>
+        </div>
+        <div class="feature-image">
+          <img src="./images/feature-goals.jpg" alt="Goals dashboard across time horizons" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-text">
+          <div class="feature-icon" style="background:rgba(0,200,150,0.12); color:#00A87C;">📈</div>
+          <h3>Watch your progress add up</h3>
+          <p>Daily streaks, weekly wins, and long-term momentum, all in one dashboard. Small, consistent actions compound — Prospere just makes sure you can actually see it happening.</p>
+        </div>
+        <div class="feature-image">
+          <img src="./images/feature-progress.jpg" alt="Home dashboard tracking daily progress" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="feature-row reverse">
+        <div class="feature-text">
+          <div class="feature-icon" style="background:rgba(240,149,79,0.15); color:#D9622C;">🖼️</div>
+          <h3>Carry your "why" with you</h3>
+          <p>Build a vision board of the life you're working toward — right on your phone, always one tap away for the days you need a reminder of why you started.</p>
+        </div>
+        <div class="feature-image">
+          <img src="./images/feature-vision-board.jpg" alt="Vision board of personal goals and dreams" loading="lazy" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="wrap">
+      <h2>You already know something needs to change.</h2>
+      <p>Prospere won't hand you a generic plan. It helps you build your own — grounded in your actual values, your actual energy, your actual life.</p>
+      <div class="cta-row" style="justify-content:center;">
+        <a class="btn-primary" href="mailto:joeldubey@gmail.com?subject=Prospere%20Early%20Access">Get Early Access</a>
+      </div>
+      <div class="coming-soon">or email <a href="mailto:joeldubey@gmail.com">joeldubey@gmail.com</a> directly</div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>&copy; 2026 Prospere. Made by Joel Dubey.</span>
+      <div class="footer-links">
+        <a href="./index.html">Support</a>
+        <a href="./privacy-policy.html">Privacy Policy</a>
+        <a href="mailto:joeldubey@gmail.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
