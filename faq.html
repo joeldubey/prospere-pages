@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — Prospere</title>
+  <link rel="icon" href="./images/icon.png" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: #0d0d0d;
+      color: #e5e7eb;
+      line-height: 1.7;
+      padding: 40px 20px 80px;
+    }
+    .container { max-width: 720px; margin: 0 auto; }
+    h1 { font-size: 2rem; font-weight: 700; color: #00e5a0; margin-bottom: 4px; }
+    .subtitle { font-size: 0.85rem; color: #6b7280; margin-bottom: 36px; }
+    h2 { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #6b7280; margin-top: 40px; margin-bottom: 14px; }
+    a { color: #00e5a0; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    details {
+      background: #16181c;
+      border: 1px solid #1f2937;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #f9fafb;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: '+';
+      font-size: 1.3rem;
+      color: #00e5a0;
+      margin-left: 12px;
+      flex-shrink: 0;
+    }
+    details[open] summary::after { content: '\2212'; }
+    details p { margin-top: 12px; color: #d1d5db; font-size: 0.95rem; }
+    details p a { color: #00e5a0; }
+    .footer-links { margin-top: 48px; font-size: 0.85rem; color: #6b7280; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>FAQ</h1>
+    <p class="subtitle">Prospere &mdash; Self-Improvement App</p>
+
+    <h2>Getting Started</h2>
+
+    <details>
+      <summary>What is Prospere?</summary>
+      <p>Prospere is a self-improvement app guided by Coach Celia. It walks you through guided self-reflection exercises to clarify your values and vision, then helps you set goals and build daily habits that actually reflect what matters to you.</p>
+    </details>
+
+    <details>
+      <summary>Is Prospere free?</summary>
+      <p>Yes, Prospere is currently free to use. If we ever introduce paid features, we'll give clear notice and pricing before you're charged anything.</p>
+    </details>
+
+    <details>
+      <summary>What platforms does it run on?</summary>
+      <p>Prospere is currently in beta on both iOS and Android.</p>
+    </details>
+
+    <details>
+      <summary>How do I join the beta?</summary>
+      <p>Email <a href="mailto:joeldubey@gmail.com?subject=Prospere%20Beta%20Access">joeldubey@gmail.com</a> and we'll get you set up.</p>
+    </details>
+
+    <details>
+      <summary>Do I have to complete the exercises in a specific order?</summary>
+      <p>Yes, Inner Work is a sequential path &mdash; you can't skip ahead to modules you haven't reached yet. This keeps the work coherent: you define who you are before setting goals that reflect it. You can always revisit any module you've already completed, and your progress saves automatically.</p>
+    </details>
+
+    <h2>About the Content</h2>
+
+    <details>
+      <summary>Who is Coach Celia?</summary>
+      <p>Coach Celia is the guide behind every exercise in Prospere. She's a World Triathlon Gold, Silver &amp; Bronze medalist and 25-time USA Triathlon (USAT) National Champion across triathlon and duathlon, and she created all of the guided content in the app.</p>
+    </details>
+
+    <details>
+      <summary>Is Prospere a replacement for therapy or professional coaching?</summary>
+      <p>No. Prospere is a self-improvement tool, not a substitute for professional medical, psychological, financial, or legal advice. If you're experiencing a mental health crisis, please contact a licensed professional or emergency services in your area.</p>
+    </details>
+
+    <details>
+      <summary>How much time does it take?</summary>
+      <p>Inner Work is self-paced &mdash; there's no timer or deadline. Some people move through it in a weekend, others take it exercise by exercise over a few weeks. Take your time; it's meant to be worked through honestly, not rushed.</p>
+    </details>
+
+    <h2>Privacy &amp; Account</h2>
+
+    <details>
+      <summary>Is my data private?</summary>
+      <p>We don't sell your data or use it for advertising, and we use no third-party analytics or ad SDKs. Your content is stored securely with Supabase, our database provider &mdash; full details are in our <a href="./privacy-policy.html">Privacy Policy</a>.</p>
+    </details>
+
+    <details>
+      <summary>Can I delete my account and data?</summary>
+      <p>Yes, any time. Email <a href="mailto:joeldubey@gmail.com?subject=Prospere%20Account%20Deletion">joeldubey@gmail.com</a> from your account's registered email address and we'll process the deletion within 30 days.</p>
+    </details>
+
+    <details>
+      <summary>Something's not working &mdash; who do I contact?</summary>
+      <p>Visit our <a href="./index.html">Support page</a> or email <a href="mailto:joeldubey@gmail.com?subject=Prospere%20Support">joeldubey@gmail.com</a> directly with your device type and a description of the issue.</p>
+    </details>
+
+    <p class="footer-links">Prospere &middot; <a href="./index.html">Support</a> &middot; <a href="./privacy-policy.html">Privacy Policy</a> &middot; <a href="./terms-of-service.html">Terms</a></p>
+  </div>
+</body>
+</html>
