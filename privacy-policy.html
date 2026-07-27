@@ -35,14 +35,14 @@
     <h2>1. Information We Collect</h2>
     <p><strong>Account information.</strong> When you create an account we collect your email address, first name, last name, and the password you choose (stored as a secure hash &mdash; we never see it in plain text). You may optionally upload a profile photo.</p>
     <p><strong>Content you create.</strong> The App stores the self-reflection exercises you complete, goals you set, activity names, and your activity completion records. This content is personal to you and is used only to power the App&rsquo;s features.</p>
-    <p><strong>Notification preferences.</strong> If you enable notifications, your preference settings (notification tier and quiet-hours window) are stored locally on your device using your device&rsquo;s encrypted storage.</p>
+    <p><strong>Notification preferences and device push token.</strong> If you enable notifications, your preference settings (notification tier and quiet-hours window) are stored locally on your device. A copy of these settings, along with your device&rsquo;s push notification token and time zone, is also sent to our servers so that time-sensitive notifications can be delivered even when the App is closed (see Section 3).</p>
     <p>We do <strong>not</strong> collect your location, contacts, health data from device health services, financial information, or advertising identifiers. We use no third-party analytics or advertising SDKs.</p>
 
     <h2>2. How We Use Your Information</h2>
     <ul>
       <li>To create and manage your account and authenticate you securely.</li>
       <li>To store and display the exercises, goals, and activity records you enter.</li>
-      <li>To deliver optional local push notifications (daily reminders, streak alerts, goal check-ins) based on your preferences. These notifications are scheduled entirely on-device and do not involve sending your data to any notification service.</li>
+      <li>To deliver optional push notifications (daily reminders, streak alerts, goal check-ins) based on your preferences. Most are scheduled entirely on-device. A small subset that depend on same-day activity (streak protection, daily goal progress) are triggered server-side, which requires sending your device&rsquo;s push notification token and time zone to our servers so the notification can be delivered through Apple/Google&rsquo;s push notification services. A one-time email reminder sent about a year after you complete Inner Work is delivered via our email provider, Resend.</li>
       <li>To allow you to personalize your profile.</li>
     </ul>
     <p>We do not sell your personal information. We do not use your content for advertising, profiling, or any purpose beyond operating the features you use in the App.</p>
@@ -50,13 +50,15 @@
     <h2>3. Data Storage and Processors</h2>
     <p>Your account and content data is stored on servers operated by <strong>Supabase, Inc.</strong> (United States), a data processor we use for authentication and database services. Supabase processes your data solely on our behalf according to our instructions. You can review Supabase&rsquo;s own security and compliance documentation at <a href="https://supabase.com/security" target="_blank" rel="noopener">supabase.com/security</a>.</p>
     <p>Profile photos you upload are stored in Supabase Storage, which is hosted in the same infrastructure.</p>
-    <p>Notification preference settings (tier, quiet hours) are stored locally on your device using encrypted device storage and are never transmitted to our servers.</p>
+    <p>Notification preference settings (tier, quiet hours), your device&rsquo;s push notification token, and time zone are sent to and stored on our servers so that the server-triggered notifications described above can be delivered. We use these solely to send you the notifications you&rsquo;ve enabled.</p>
+    <p>The email reminder described above is sent through <strong>Resend</strong>, an email delivery processor, using only your email address and first name.</p>
 
     <h2>4. Data Retention</h2>
     <p>We retain your account and content data for as long as your account is active. If you delete your account, we will delete your personal information and content from our systems within 30 days, except where we are required to retain it by applicable law.</p>
 
-    <h2>5. Your Rights and Choices</h2>
-    <p>You may update your name, email address, and profile photo at any time within the App&rsquo;s profile settings. You may delete your account by contacting us at the email below; we will confirm deletion within 30 days.</p>
+    <h2 id="account-deletion">5. Your Rights and Choices</h2>
+    <p>You may update your name, email address, and profile photo at any time within the App&rsquo;s profile settings.</p>
+    <p><strong>To delete your account and associated data</strong>, email <a href="mailto:joeldubey@gmail.com?subject=Prospere%20Account%20Deletion%20Request">joeldubey@gmail.com</a> with the subject &ldquo;Account Deletion Request&rdquo; from the email address on your account. We will delete your account and personal information within 30 days and confirm by email once complete.</p>
     <p>If you are in the European Economic Area, United Kingdom, or California, you may also have rights to access, correct, or port your personal data. To exercise these rights please contact us.</p>
 
     <h2>6. Children&rsquo;s Privacy</h2>
